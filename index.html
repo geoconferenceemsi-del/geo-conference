@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Conférence Officielle — Comment la géographie a façonné le destin du Maroc ?</title>
+  
+  <!-- Polices Google : Cormorant Garamond (Royal) & Plus Jakarta Sans (Moderne) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       OPTION B : ROYAL MOROCCO THEME & DESIGN SYSTEM
+       Bleu nuit (#070c18), Bordeaux (#701429), Or (#d4af37), Beige (#f6efe2)
+       ========================================================= */
+    :root {
+      --bg-deep: #060a14;
+      --bg-midnight: #0b1325;
+      --card-bg: rgba(13, 22, 40, 0.78);
+      --card-bg-solid: #0e172a;
+      --card-hover: rgba(19, 31, 56, 0.9);
+      
+      --royal-gold: #d4af37;
+      --royal-gold-light: #f5d77f;
+      --royal-gold-glow: rgba(212, 175, 55, 0.28);
+      
+      --royal-bordeaux: #701429;
+      --bordeaux-light: #8e1c37;
+      --bordeaux-soft: rgba(112, 20, 41, 0.25);
+      
+      --royal-beige: #f6efe2;
+      --royal-beige-muted: #d8cebd;
+      --text-slate: #94a3b8;
+      --text-white: #ffffff;
+      
+      --line-subtle: rgba(212, 175, 55, 0.18);
+      --line-highlight: rgba(212, 175, 55, 0.55);
+      
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      
+      --shadow-card: 0 16px 40px -10px rgba(0, 0, 0, 0.6);
+      --shadow-gold: 0 0 25px rgba(212, 175, 55, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+      color: var(--royal-beige);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background: radial-gradient(circle at 50% 0%, #101c38 0%, #060a14 75%);
+      position: relative;
+    }
+
+    /* Ambient Glow Effects */
+    .ambient-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.22;
+    }
+    .glow-1 {
+      top: -120px;
+      left: 10%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, var(--royal-gold), transparent 70%);
+    }
+    .glow-2 {
+      top: 35%;
+      right: -100px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, var(--royal-bordeaux), transparent 70%);
+      opacity: 0.25;
+    }
+    .glow-3 {
+      bottom: 5%;
+      left: -80px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, #1a365d, transparent 70%);
+    }
+
+    /* Image Background Carte du Maroc en Filigrane */
+    .morocco-bg-wrap {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .morocco-map-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -48%);
+      width: min(950px, 100vw);
+      max-height: 94vh;
+      object-fit: contain;
+      opacity: 0.23; /* Opacité et taille rehaussées pour un impact visuel fort */
+      filter: drop-shadow(0 0 55px rgba(212, 175, 55, 0.45));
+      transition: all 0.4s ease;
+    }
+    @media (max-width: 600px) {
+      .morocco-map-img {
+        width: 110vw;
+        max-height: 88vh;
+        opacity: 0.22;
+      }
+    }
+
+    /* Layout Wrapper */
+    .container {
+      width: min(720px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 100px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* =========================================================
+       HEADER & NAVIGATION BAR
+       ========================================================= */
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      background: rgba(11, 19, 37, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-lg);
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .emsi-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0d3b24, #052214);
+      color: #38ef7d;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(56, 239, 125, 0.3);
+      box-shadow: 0 4px 12px rgba(5, 34, 20, 0.4);
+    }
+
+    .emsi-logo-container {
+      background: #ffffff;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: all 0.25s ease;
+    }
+    .emsi-logo-container:hover {
+      border-color: var(--royal-gold);
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+    }
+    .emsi-logo-img {
+      height: 28px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Hero Partner row with official EMSI Logo */
+    .hero-partner-row {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-logo-card {
+      background: #ffffff;
+      padding: 7px 16px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--royal-gold);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-emsi-img {
+      height: 34px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      display: block;
+    }
+    .hero-partner-divider {
+      color: var(--royal-gold);
+      font-size: 0.9rem;
+      font-weight: 700;
+      opacity: 0.7;
+    }
+    .hero-cfc-badge {
+      background: linear-gradient(135deg, rgba(112, 20, 41, 0.45), rgba(14, 23, 42, 0.9));
+      border: 1px solid var(--royal-gold);
+      color: var(--royal-gold-light);
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-white);
+      letter-spacing: 0.02em;
+    }
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--royal-gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qr-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(112, 20, 41, 0.25));
+      border: 1px solid var(--royal-gold);
+      color: var(--royal-gold-light);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .qr-pill-btn:hover {
+      background: var(--royal-gold);
+      color: var(--bg-deep);
+      box-shadow: var(--shadow-gold);
+      transform: translateY(-1px);
+    }
+
+    /* =========================================================
+       HERO CARD
+       ========================================================= */
+    .hero-card {
+      background: linear-gradient(170deg, rgba(16, 26, 48, 0.88), rgba(9, 14, 26, 0.94));
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-lg);
+      padding: 34px 24px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 24px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--royal-gold), transparent);
+    }
+
+    .badge-conference {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(112, 20, 41, 0.35);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--royal-gold-light);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--royal-gold);
+      box-shadow: 0 0 8px var(--royal-gold);
+      animation: pulseAnim 2s infinite ease-in-out;
+    }
+    @keyframes pulseAnim {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.85rem, 5.2vw, 2.75rem);
+      font-weight: 700;
+      color: var(--royal-beige);
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+    }
+    .hero-title .highlight {
+      color: var(--royal-gold);
+      display: inline-block;
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--royal-beige-muted);
+      line-height: 1.6;
+      max-width: 580px;
+      margin: 0 auto 24px;
+      font-weight: 400;
+    }
+
+    /* Info Grid (Date / Lieu / Intervenants) */
+    .hero-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .info-chip {
+      background: rgba(8, 14, 28, 0.65);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+    .info-chip:hover {
+      border-color: var(--royal-gold);
+      background: rgba(14, 23, 44, 0.85);
+      transform: translateY(-2px);
+    }
+    .info-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(112, 20, 41, 0.3));
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      display: grid;
+      place-items: center;
+      color: var(--royal-gold);
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .info-text strong {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+    .info-text span {
+      font-size: 0.72rem;
+      color: var(--text-slate);
+    }
+
+    /* Slogan Banner */
+    .slogan-banner {
+      background: linear-gradient(90deg, rgba(112, 20, 41, 0.3), rgba(212, 175, 55, 0.15), rgba(112, 20, 41, 0.3));
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      margin-top: 20px;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--royal-gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* =========================================================
+       SECTION: POURQUOI PARTICIPER ? (4 PILLIERS)
+       ========================================================= */
+    .section-title-wrap {
+      margin: 36px 0 18px;
+      text-align: left;
+    }
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--royal-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .section-tag::before {
+      content: "//";
+      color: var(--royal-gold-light);
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.75rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 580px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pillar-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+    .pillar-card:hover {
+      border-color: var(--line-highlight);
+      background: var(--card-hover);
+      transform: translateY(-3px);
+    }
+    .pillar-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pillar-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(11, 19, 37, 0.8));
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      color: var(--royal-gold);
+      flex-shrink: 0;
+    }
+    .pillar-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+    .pillar-desc {
+      font-size: 0.82rem;
+      color: var(--royal-beige-muted);
+      line-height: 1.45;
+    }
+
+    /* Callout Banner Étudiants */
+    .students-banner {
+      background: linear-gradient(135deg, rgba(112, 20, 41, 0.4), rgba(14, 23, 42, 0.95));
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .students-content h4 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .students-content p {
+      font-size: 0.82rem;
+      color: var(--royal-beige-muted);
+    }
+    .students-badge {
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--royal-gold);
+      color: var(--royal-gold-light);
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    @media (max-width: 540px) {
+      .students-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* =========================================================
+       TIMELINE PROGRAMME OFFICIEL (01 -> 06)
+       ========================================================= */
+    .timeline-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .program-step-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .program-step-card:hover {
+      border-color: var(--line-highlight);
+      background: var(--card-hover);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--royal-bordeaux), #3a0814);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--royal-gold-light);
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.25;
+    }
+
+    .step-body {
+      font-size: 0.88rem;
+      color: var(--royal-beige-muted);
+      line-height: 1.6;
+    }
+    .step-body p + p {
+      margin-top: 10px;
+    }
+
+    /* Axes list (Section 03) */
+    .axes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .axe-item {
+      background: rgba(8, 14, 28, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .axe-badge {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(112, 20, 41, 0.3));
+      border: 1px solid var(--royal-gold);
+      color: var(--royal-gold-light);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .axe-text {
+      font-size: 0.86rem;
+      color: var(--text-white);
+      font-weight: 500;
+    }
+
+    /* Débat Contradictoire (Section 04) */
+    .debate-question {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--royal-gold-light);
+      margin: 10px 0 14px;
+      padding: 10px 14px;
+      background: rgba(112, 20, 41, 0.2);
+      border-left: 3px solid var(--royal-gold);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .debate-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 500px) {
+      .debate-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .debate-side-card {
+      border-radius: var(--radius-md);
+      padding: 16px;
+      border: 1px solid transparent;
+    }
+    .debate-side-card.yes {
+      background: linear-gradient(145deg, rgba(18, 55, 36, 0.45), rgba(11, 28, 20, 0.6));
+      border-color: rgba(56, 239, 125, 0.35);
+    }
+    .debate-side-card.no {
+      background: linear-gradient(145deg, rgba(88, 16, 32, 0.45), rgba(42, 9, 16, 0.6));
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+    .debate-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 8px;
+    }
+    .debate-side-card.yes .debate-badge {
+      background: #185a36;
+      color: #72f5a6;
+      border: 1px solid rgba(114, 245, 166, 0.4);
+    }
+    .debate-side-card.no .debate-badge {
+      background: #5c1421;
+      color: #fca5a5;
+      border: 1px solid rgba(252, 165, 165, 0.4);
+    }
+    .debate-position-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--royal-beige-muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .debate-argument {
+      font-size: 0.84rem;
+      color: var(--text-white);
+      line-height: 1.45;
+    }
+
+    /* Clôture Note */
+    .closing-thankyou {
+      margin-top: 16px;
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(112, 20, 41, 0.15));
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .closing-thankyou strong {
+      display: block;
+      color: var(--royal-gold-light);
+      font-size: 0.98rem;
+    }
+    .closing-thankyou span {
+      font-size: 0.78rem;
+      color: var(--royal-beige-muted);
+    }
+
+    /* =========================================================
+       SECTION 5-STAR RATING INTERACTIF
+       ========================================================= */
+    .rating-section-card {
+      background: linear-gradient(170deg, rgba(16, 26, 48, 0.92), rgba(11, 17, 32, 0.98));
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--royal-gold);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15), var(--shadow-card);
+      border-radius: var(--radius-lg);
+      padding: 30px 24px;
+      text-align: center;
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .rating-header h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .rating-header p {
+      font-size: 0.85rem;
+      color: var(--royal-beige-muted);
+      max-width: 440px;
+      margin: 0 auto 20px;
+    }
+
+    /* Star Container */
+    .stars-group {
+      display: inline-flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+    .star-btn {
+      background: none;
+      border: none;
+      padding: 4px;
+      font-size: 2.3rem;
+      line-height: 1;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .star-btn:hover {
+      transform: scale(1.28) rotate(-6deg);
+    }
+    .star-btn.active {
+      color: var(--royal-gold);
+      text-shadow: 0 0 18px rgba(212, 175, 55, 0.65);
+    }
+
+    .rating-sentiment {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--royal-gold-light);
+      min-height: 24px;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .feedback-form {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 540px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .form-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--royal-gold-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(8, 14, 28, 0.85);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      color: var(--text-white);
+      font-family: inherit;
+      font-size: 0.86rem;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+    .form-input:focus {
+      border-color: var(--royal-gold);
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
+      background: rgba(12, 20, 38, 0.95);
+    }
+    .form-input::placeholder {
+      color: #64748b;
+      font-size: 0.82rem;
+    }
+
+    .feedback-textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .btn-submit-rating {
+      background: linear-gradient(135deg, var(--royal-gold), #b89328);
+      color: #060a14;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-submit-rating:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.55);
+      background: linear-gradient(135deg, var(--royal-gold-light), #d4af37);
+    }
+
+    .rating-success-box {
+      display: none;
+      background: rgba(18, 55, 36, 0.4);
+      border: 1px solid rgba(56, 239, 125, 0.4);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-top: 16px;
+      color: #72f5a6;
+      font-size: 0.9rem;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================================================
+       SECTION CONTACT & RÉSEAUX (STYLE PORTFOLIO)
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .contact-card-item {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+    .contact-card-item:hover {
+      border-color: var(--royal-gold);
+      background: var(--card-hover);
+      transform: translateX(4px);
+    }
+
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 1.25rem;
+    }
+    .contact-icon-box.instagram {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(253, 29, 29, 0.3);
+    }
+    .contact-icon-box.email {
+      background: linear-gradient(135deg, var(--royal-bordeaux), #9f1a38);
+      color: var(--royal-gold-light);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+    }
+    .contact-icon-box.location {
+      background: linear-gradient(135deg, #0d3b24, #1f8a4c);
+      color: #72f5a6;
+      border: 1px solid rgba(114, 245, 166, 0.35);
+    }
+
+    .contact-info-col {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .contact-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--royal-gold);
+    }
+    .contact-value {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-white);
+      word-break: break-all;
+    }
+    .contact-arrow {
+      color: var(--royal-gold);
+      font-size: 1.1rem;
+      opacity: 0.7;
+      transition: transform 0.2s ease;
+    }
+    .contact-card-item:hover .contact-arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid var(--line-subtle);
+      margin-top: 40px;
+    }
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--royal-gold);
+    }
+    .footer-slogan {
+      font-size: 0.85rem;
+      color: var(--royal-beige-muted);
+      margin-bottom: 8px;
+    }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--text-slate);
+    }
+
+    /* =========================================================
+       STICKY BOTTOM QUICK BAR (SCAN QR & SHARE)
+       ========================================================= */
+    .sticky-bar {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      display: flex;
+      gap: 10px;
+      background: rgba(11, 19, 37, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 8px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--royal-gold);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--shadow-gold);
+      width: min(440px, calc(100% - 32px));
+    }
+    .sticky-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .sticky-btn.primary {
+      background: linear-gradient(135deg, var(--royal-gold), #b89328);
+      color: #060a14;
+    }
+    .sticky-btn.secondary {
+      background: rgba(112, 20, 41, 0.4);
+      color: var(--royal-beige);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .sticky-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       MODAL QR CODE
+       ========================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 15, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      display: none;
+      place-items: center;
+      padding: 20px;
+    }
+    .modal-backdrop.active {
+      display: grid;
+    }
+    .qr-modal-card {
+      background: linear-gradient(170deg, #0e172a, #070c18);
+      border: 1px solid var(--royal-gold);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), var(--shadow-gold);
+      position: relative;
+      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes modalPop {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--text-white);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .modal-qr-preview {
+      width: 220px;
+      height: 220px;
+      margin: 16px auto;
+      border-radius: var(--radius-md);
+      padding: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-qr-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glow">
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+    <div class="glow-orb glow-3"></div>
+  </div>
+
+  <!-- Image de la Carte du Maroc en filigrane (avec opacité subtile) -->
+  <div class="morocco-bg-wrap">
+    <img src="maroc.png" alt="Carte du Maroc" class="morocco-map-img" onerror="this.src='maroc.jpg'" />
+  </div>
+
+  <main class="container">
+    
+    <!-- HEADER BAR -->
+    <header class="header-nav">
+      <a href="#accueil" class="brand-group">
+        <div class="emsi-logo-container">
+          <img src="emsi_logo.png" alt="Logo EMSI" class="emsi-logo-img" />
+        </div>
+        <div class="brand-titles">
+          <span class="brand-name">CFC Casablanca</span>
+          <span class="brand-sub">Conférence Officielle</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="qr-pill-btn" onclick="openQrModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          QR Code
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-card" id="accueil">
+      <div class="hero-partner-row">
+        <div class="hero-logo-card">
+          <img src="emsi_logo.png" alt="Logo EMSI" class="hero-emsi-img" />
+        </div>
+        <span class="hero-partner-divider">•</span>
+        <div class="hero-cfc-badge">CFC Casablanca</div>
+      </div>
+
+      <div class="badge-conference">
+        <span class="pulse-dot"></span>
+        Événement Académique & Géopolitique
+      </div>
+      
+      <h1 class="hero-title">
+        Comment la géographie a façonné le <span class="highlight">destin du Maroc ?</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        De sa position stratégique à son ouverture sur le monde, la géographie du Maroc a joué un rôle clé dans son histoire, son économie, ses relations internationales et ses perspectives d'avenir.
+      </p>
+
+      <!-- Fiches clés (Date, Lieu, Intervenants) -->
+      <div class="hero-info-grid">
+        <div class="info-chip">
+          <div class="info-icon">📅</div>
+          <div class="info-text">
+            <strong>27 Novembre 2026</strong>
+            <span>À partir de 18h00</span>
+          </div>
+        </div>
+
+        <div class="info-chip">
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <strong>EMSI CFC Casablanca</strong>
+            <span>Amphithéâtre Principal</span>
+          </div>
+        </div>
+
+        <div class="info-chip">
+          <div class="info-icon">👥</div>
+          <div class="info-text">
+            <strong>2 à 3 Intervenants</strong>
+            <span>Experts & Spécialistes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slogan-banner">
+        <span>« Une conférence pour comprendre, une vision pour demain ! »</span>
+      </div>
+    </section>
+
+    <!-- SECTION : POURQUOI PARTICIPER ? -->
+    <section>
+      <div class="section-title-wrap">
+        <div class="section-tag">Thématiques Clés</div>
+        <h2 class="section-title">Pourquoi participer ?</h2>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- 1. Géopolitique -->
+        <div class="pillar-card">
+          <div class="pillar-header">
+            <div class="pillar-icon">🌐</div>
+            <div class="pillar-title">Géopolitique</div>
+          </div>
+          <p class="pillar-desc">Comprendre les enjeux mondiaux et régionaux au carrefour de l'Afrique et de l'Europe.</p>
+        </div>
+
+        <!-- 2. Économie -->
+        <div class="pillar-card">
+          <div class="pillar-header">
+            <div class="pillar-icon">📈</div>
+            <div class="pillar-title">Économie</div>
+          </div>
+          <p class="pillar-desc">Explorer les opportunités et les défis d'un Maroc connecté aux flux maritimes mondiaux.</p>
+        </div>
+
+        <!-- 3. Histoire -->
+        <div class="pillar-card">
+          <div class="pillar-header">
+            <div class="pillar-icon">📖</div>
+            <div class="pillar-title">Histoire</div>
+          </div>
+          <p class="pillar-desc">Revenir sur les racines millénaires et les fondations d'un territoire stratégique singulier.</p>
+        </div>
+
+        <!-- 4. Relations Internationales -->
+        <div class="pillar-card">
+          <div class="pillar-header">
+            <div class="pillar-icon">🤝</div>
+            <div class="pillar-title">Relations internationales</div>
+          </div>
+          <p class="pillar-desc">Éclairer les alliances d'aujourd'hui, le leadership continental et la diplomatie de demain.</p>
+        </div>
+      </div>
+
+      <!-- Bandeau Étudiants -->
+      <div class="students-banner">
+        <div class="students-content">
+          <h4>ÉTUDIANTS, VENEZ NOMBREUX !</h4>
+          <p>Posez vos questions, élargissez votre vision et enrichissez votre parcours académique et professionnel.</p>
+        </div>
+        <div class="students-badge">Inspirant & Ouvert</div>
+      </div>
+    </section>
+
+    <!-- SECTION : PROGRAMME OFFICIEL (01 à 06) -->
+    <section id="programme">
+      <div class="section-title-wrap">
+        <div class="section-tag">Déroulement Officiel</div>
+        <h2 class="section-title">Programme de la Conférence</h2>
+      </div>
+
+      <div class="timeline-wrap">
+
+        <!-- 01 : Présentation -->
+        <article class="program-step-card">
+          <div class="step-header">
+            <span class="step-num">01</span>
+            <h3 class="step-title">Présentation de la conférence</h3>
+          </div>
+          <div class="step-body">
+            <p>
+              La géographie constitue un facteur essentiel dans la construction de l’identité et du développement du Maroc. Grâce à sa position stratégique entre l’Europe et l’Afrique, ainsi qu’à son ouverture sur l’océan Atlantique et la mer Méditerranée, le Maroc occupe une place importante sur les plans économique, historique et géopolitique.
+            </p>
+            <p>
+              Cette conférence vise à analyser l’influence de la géographie sur le passé, le présent et l’avenir du Royaume.
+            </p>
+          </div>
+        </article>
+
+        <!-- 02 : Ouverture -->
+        <article class="program-step-card">
+          <div class="step-header">
+            <span class="step-num">02</span>
+            <h3 class="step-title">Ouverture</h3>
+          </div>
+          <div class="step-body">
+            <p>Mot de bienvenue et présentation officielle des objectifs et des invités d'honneur de la conférence.</p>
+          </div>
+        </article>
+
+        <!-- 03 : Les axes principaux -->
+        <article class="program-step-card">
+          <div class="step-header">
+            <span class="step-num">03</span>
+            <h3 class="step-title">Les axes principaux</h3>
+          </div>
+          <div class="step-body">
+            <div class="axes-list">
+              <div class="axe-item">
+                <span class="axe-badge">Axe A</span>
+                <span class="axe-text">La géographie : un avantage stratégique pour le Maroc ?</span>
+              </div>
+              <div class="axe-item">
+                <span class="axe-badge">Axe B</span>
+                <span class="axe-text">La géographie peut-elle garantir le développement économique ?</span>
+              </div>
+              <div class="axe-item">
+                <span class="axe-badge">Axe C</span>
+                <span class="axe-text">La géographie et la puissance géopolitique du Maroc.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 : Débat contradictoire -->
+        <article class="program-step-card">
+          <div class="step-header">
+            <span class="step-num">04</span>
+            <h3 class="step-title">Débat contradictoire : face-à-face</h3>
+          </div>
+          <div class="step-body">
+            <div class="debate-question">
+              Question : « La géographie : avantage ou limite ? »
+            </div>
+
+            <div class="debate-cards-grid">
+              <!-- Position OUI -->
+              <div class="debate-side-card yes">
+                <span class="debate-badge">OUI</span>
+                <div class="debate-position-label">Position Favorable</div>
+                <p class="debate-argument">La géographie constitue un atout naturel et géopolitique majeur pour le rayonnement du Maroc.</p>
+              </div>
+
+              <!-- Position NON -->
+              <div class="debate-side-card no">
+                <span class="debate-badge">NON</span>
+                <div class="debate-position-label">Position Contradictoire</div>
+                <p class="debate-argument">La géographie seule ne suffit pas : la gouvernance, les infrastructures et les compétences restent déterminantes.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 : Échange avec le public -->
+        <article class="program-step-card">
+          <div class="step-header">
+            <span class="step-num">05</span>
+            <h3 class="step-title">Échange avec le public</h3>
+          </div>
+          <div class="step-body">
+            <p>Séance interactive de questions-réponses et débat ouvert entre les participants et les experts intervenants.</p>
+          </div>
+        </article>
+
+        <!-- 06 : Synthèse et clôture -->
+        <article class="program-step-card">
+          <div class="step-header">
+            <span class="step-num">06</span>
+            <h3 class="step-title">Synthèse et clôture</h3>
+          </div>
+          <div class="step-body">
+            <p>Récapitulation des principales idées dégagées, conclusion générale et remerciements officiels.</p>
+            <div class="closing-thankyou">
+              <strong>Merci pour votre participation !</strong>
+              <span>EMSI – CFC Casablanca</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION : SYSTÈME DE RATING 5 ÉTOILES & FORMULAIRE DE RETOUR -->
+    <section class="rating-section-card" id="rating">
+      <div class="rating-header">
+        <div class="section-tag" style="justify-content:center; display:flex;">Avis & Contact</div>
+        <h3>Votre avis compte pour nous !</h3>
+        <p>Partagez votre évaluation, vos impressions ou vos questions. Vos remarques seront transmises directement à l'adresse officielle de la conférence : <strong>geo.conference.emsi@gmail.com</strong>.</p>
+      </div>
+
+      <!-- 5 Etoiles Interactives -->
+      <div style="margin-bottom: 22px;">
+        <div class="stars-group" id="starsGroup">
+          <button type="button" class="star-btn" data-rating="1" aria-label="1 étoile">★</button>
+          <button type="button" class="star-btn" data-rating="2" aria-label="2 étoiles">★</button>
+          <button type="button" class="star-btn" data-rating="3" aria-label="3 étoiles">★</button>
+          <button type="button" class="star-btn" data-rating="4" aria-label="4 étoiles">★</button>
+          <button type="button" class="star-btn" data-rating="5" aria-label="5 étoiles">★</button>
+        </div>
+        <div class="rating-sentiment" id="sentimentLabel">Touchez une étoile pour donner votre note</div>
+      </div>
+
+      <!-- Formulaire avec Nom, Email, Commentaire -->
+      <form class="feedback-form" id="conferenceFeedbackForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="userName">
+              <span>👤 Nom & Prénom *</span>
+            </label>
+            <input type="text" class="form-input" id="userName" name="nom_prenom" placeholder="Votre nom complet" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userEmail">
+              <span>✉️ Votre Email *</span>
+            </label>
+            <input type="email" class="form-input" id="userEmail" name="email_participant" placeholder="votre.email@gmail.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="feedbackComment">
+            <span>💬 Votre commentaire, avis ou question *</span>
+          </label>
+          <textarea 
+            class="form-input feedback-textarea" 
+            id="feedbackComment" 
+            name="commentaire"
+            placeholder="Exprimez votre avis sur les thématiques abordées, posez une question aux intervenants ou partagez vos impressions..."
+            required
+          ></textarea>
+        </div>
+
+        <div style="text-align:center; margin-top: 20px;">
+          <button type="submit" class="btn-submit-rating" id="submitRatingBtn">
+            <span>Envoyer à l'organisation</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="rating-success-box" id="ratingSuccessMsg">
+        ⭐ <strong>Merci pour votre message !</strong> Votre évaluation et votre avis ont été envoyés avec succès à <strong>geo.conference.emsi@gmail.com</strong>.
+      </div>
+    </section>
+
+    <!-- SECTION : CONTACT & ORGANISATION (STYLE PORTFOLIO) -->
+    <section id="contact">
+      <div class="section-title-wrap">
+        <div class="section-tag">Réseaux & Contacts</div>
+        <h2 class="section-title">Organisation & Coordonnées</h2>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/geo.conference?obrf=cW9qMjZ5cjNibzRi" target="_blank" rel="noopener noreferrer" class="contact-card-item">
+          <div class="contact-icon-box instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="contact-info-col">
+            <span class="contact-label">Instagram Officiel</span>
+            <span class="contact-value">@geo.conference</span>
+          </div>
+          <div class="contact-arrow">↗</div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:geo.conference.emsi@gmail.com" class="contact-card-item">
+          <div class="contact-icon-box email">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div class="contact-info-col">
+            <span class="contact-label">Email Officiel</span>
+            <span class="contact-value">geo.conference.emsi@gmail.com</span>
+          </div>
+          <div class="contact-arrow">✉</div>
+        </a>
+
+        <!-- Localisation -->
+        <div class="contact-card-item" style="cursor: default;">
+          <div class="contact-icon-box location">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="contact-info-col">
+            <span class="contact-label">Localisation</span>
+            <span class="contact-value">EMSI CFC Casablanca, Maroc</span>
+          </div>
+          <div class="contact-arrow">📍</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:14px;">
+        <div style="background:#ffffff; border-radius:10px; padding:6px 14px; display:inline-flex; align-items:center; border:1px solid rgba(212,175,55,0.45); box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+          <img src="emsi_logo.png" alt="Logo EMSI" style="height:30px; display:block;" />
+        </div>
+        <div class="footer-logos">
+          <span>EMSI</span>
+          <span>•</span>
+          <span>CFC CASABLANCA</span>
+        </div>
+      </div>
+      <p class="footer-slogan">« Ensemble, construisons les talents de demain »</p>
+      <p class="footer-copy">Conférence Académique 2026 — Tous droits réservés.</p>
+    </footer>
+
+  </main>
+
+  <!-- STICKY ACTION BAR (MOBILE OPTIMIZED) -->
+  <aside class="sticky-bar">
+    <button class="sticky-btn primary" onclick="openQrModal()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      Scanner le QR
+    </button>
+    <a href="#rating" class="sticky-btn secondary">
+      <span>⭐ Évaluer</span>
+    </a>
+  </aside>
+
+  <!-- MODAL DU QR CODE -->
+  <div class="modal-backdrop" id="qrModal" onclick="handleBackdropClick(event)">
+    <div class="qr-modal-card">
+      <button class="modal-close-btn" onclick="closeQrModal()">✕</button>
+      <div style="background:#ffffff; border-radius:10px; padding:6px 14px; display:inline-flex; align-items:center; margin-bottom:12px; border:1px solid var(--royal-gold); box-shadow:0 4px 12px rgba(0,0,0,0.25);">
+        <img src="emsi_logo.png" alt="Logo EMSI" style="height:26px; display:block;" />
+      </div>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.45rem; color:#fff; margin-bottom:4px;">QR Code Officiel</h3>
+      <p style="font-size:0.78rem; color:var(--royal-beige-muted);">Scannez ce QR code pour accéder directement à cette page</p>
+
+      <div class="modal-qr-preview">
+        <img src="qr-conference.png" alt="QR Code de la conférence" id="modalQrImg" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(window.location.href);" />
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+        <a href="qr-conference.png" download="QR-Conference-EMSI.png" class="btn-submit-rating" style="text-decoration:none; justify-content:center; padding:10px;">
+          Télécharger l'image PNG
+        </a>
+        <button class="qr-pill-btn" onclick="copyCurrentUrl()" style="justify-content:center; padding:9px;">
+          Copier le lien du site
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT INTERACTIF : 5 STARS, LOCALSTORAGE & MODAL -->
+  <script>
+    // Sentiments selon la note
+    const sentiments = {
+      1: "1★ — À améliorer",
+      2: "2★ — Moyen",
+      3: "3★ — Intéressant & enrichissant",
+      4: "4★ — Très bonne conférence !",
+      5: "5★ — Exceptionnel & très inspirant ! ⭐"
+    };
+
+    let selectedRating = 0;
+    const starButtons = document.querySelectorAll('.star-btn');
+    const sentimentLabel = document.getElementById('sentimentLabel');
+    const nameInput = document.getElementById('userName');
+    const emailInput = document.getElementById('userEmail');
+    const commentInput = document.getElementById('feedbackComment');
+    const submitBtn = document.getElementById('submitRatingBtn');
+    const successBox = document.getElementById('ratingSuccessMsg');
+
+    // Initialiser les étoiles et champs depuis LocalStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedName = localStorage.getItem('geo_conference_name');
+      const savedEmail = localStorage.getItem('geo_conference_email');
+      const savedRating = localStorage.getItem('geo_conference_rating');
+      const savedComment = localStorage.getItem('geo_conference_comment');
+      
+      if (savedName && nameInput) nameInput.value = savedName;
+      if (savedEmail && emailInput) emailInput.value = savedEmail;
+      if (savedComment && commentInput) commentInput.value = savedComment;
+
+      if (savedRating) {
+        selectedRating = parseInt(savedRating, 10);
+        updateStarsDisplay(selectedRating);
+        sentimentLabel.textContent = sentiments[selectedRating] || "";
+      }
+    });
+
+    // Hover et Clic sur les étoiles
+    starButtons.forEach(btn => {
+      const rating = parseInt(btn.getAttribute('data-rating'), 10);
+
+      btn.addEventListener('mouseenter', () => {
+        highlightStars(rating);
+        sentimentLabel.textContent = sentiments[rating];
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (selectedRating > 0) {
+          highlightStars(selectedRating);
+          sentimentLabel.textContent = sentiments[selectedRating];
+        } else {
+          resetStars();
+          sentimentLabel.textContent = "Touchez une étoile pour donner votre note";
+        }
+      });
+
+      btn.addEventListener('click', () => {
+        selectedRating = rating;
+        updateStarsDisplay(selectedRating);
+      });
+    });
+
+    function highlightStars(count) {
+      starButtons.forEach(b => {
+        const val = parseInt(b.getAttribute('data-rating'), 10);
+        if (val <= count) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+    }
+
+    function resetStars() {
+      starButtons.forEach(b => b.classList.remove('active'));
+    }
+
+    function updateStarsDisplay(score) {
+      highlightStars(score);
+      sentimentLabel.textContent = sentiments[score];
+    }
+
+    // Envoi du formulaire vers geo.conference.emsi@gmail.com
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const comment = commentInput.value.trim();
+
+      if (!name || !email) {
+        alert("Veuillez renseigner votre nom et votre adresse email.");
+        return;
+      }
+
+      if (selectedRating === 0) {
+        const confirmNoStars = confirm("Vous n'avez pas encore sélectionné d'étoile (note). Souhaitez-vous quand même envoyer votre message ?");
+        if (!confirmNoStars) return;
+      }
+
+      const ratingText = selectedRating > 0 ? `${selectedRating}/5 étoiles (${sentiments[selectedRating] || ''})` : "Non spécifiée";
+
+      // Sauvegarde locale
+      localStorage.setItem('geo_conference_name', name);
+      localStorage.setItem('geo_conference_email', email);
+      if (selectedRating > 0) localStorage.setItem('geo_conference_rating', selectedRating);
+      if (comment) localStorage.setItem('geo_conference_comment', comment);
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Transmission en cours... ⏳</span>`;
+
+      const payload = {
+        "Nom_et_Prenom": name,
+        "Email_Participant": email,
+        "Note_Conference": ratingText,
+        "Commentaire_Avis": comment || "Aucun commentaire supplémentaire",
+        "_subject": `Nouveau retour conférence EMSI - ${name} (${selectedRating > 0 ? selectedRating + '★' : 'Message'})`,
+        "_template": "table",
+        "_captcha": "false"
+      };
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/geo.conference.emsi@gmail.com", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          successBox.innerHTML = `⭐ <strong>Merci ${name} !</strong> Votre message et votre évaluation ont été transmis avec succès à <strong>geo.conference.emsi@gmail.com</strong>.`;
+          successBox.style.display = 'block';
+        } else {
+          fallbackMailDirect(name, email, ratingText, comment);
+        }
+      } catch (err) {
+        console.error("Erreur d'envoi:", err);
+        fallbackMailDirect(name, email, ratingText, comment);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Message envoyé avec succès ✓</span>`;
+        submitBtn.style.background = "linear-gradient(135deg, #1f8a4c, #0c3d24)";
+        submitBtn.style.color = "#ffffff";
+      }
+    }
+
+    function fallbackMailDirect(name, email, ratingText, comment) {
+      const subject = encodeURIComponent(`Conférence EMSI - Avis de ${name}`);
+      const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\nNote: ${ratingText}\nCommentaire:\n${comment}`);
+      const mailtoUrl = `mailto:geo.conference.emsi@gmail.com?subject=${subject}&body=${body}`;
+
+      successBox.innerHTML = `
+        ⭐ <strong>Merci ${name} !</strong> Vos données ont été enregistrées localement.<br>
+        <span style="font-size:0.82rem; color:var(--royal-beige);">Pour garantir la réception directe :</span><br>
+        <a href="${mailtoUrl}" class="qr-pill-btn" style="margin-top:8px; display:inline-flex;">
+          Envoyer la copie par votre application Email ↗
+        </a>
+      `;
+      successBox.style.display = 'block';
+    }
+
+    // Modal QR Code
+    function openQrModal() {
+      document.getElementById('qrModal').classList.add('active');
+    }
+    function closeQrModal() {
+      document.getElementById('qrModal').classList.remove('active');
+    }
+    function handleBackdropClick(e) {
+      if (e.target.id === 'qrModal') {
+        closeQrModal();
+      }
+    }
+
+    function copyCurrentUrl() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Lien copié dans le presse-papiers : " + url);
+      }).catch(() => {
+        alert("Lien : " + url);
+      });
+    }
+  </script>
+</body>
+</html>

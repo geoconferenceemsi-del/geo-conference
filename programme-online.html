@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programme — Comment la géographie a façonné le destin du Maroc ?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --bg: #07090d;
+  --bg-elev: #10151c;
+  --bg-card: #151c25;
+  --line: rgba(212, 175, 106, 0.22);
+  --gold: #d4af6a;
+  --gold-2: #f0d59a;
+  --green: #1f8a4c;
+  --green-soft: #2db36a;
+  --text: #f4efe6;
+  --muted: #b7b0a4;
+  --yes: #cde9d4;
+  --yes-ink: #0f3d22;
+  --no: #f3d5d5;
+  --no-ink: #5a1c1c;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(900px 420px at 12% -10%, rgba(31, 138, 76, 0.22), transparent 60%),
+    radial-gradient(700px 380px at 100% 8%, rgba(212, 175, 106, 0.16), transparent 55%),
+    radial-gradient(600px 500px at 50% 110%, rgba(31, 138, 76, 0.12), transparent 50%);
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: min(920px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 22px 0 80px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #1f8a4c, #0c3d24);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+  border: 1px solid rgba(240, 213, 154, 0.35);
+}
+
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: rgba(16, 21, 28, 0.7);
+  color: var(--gold-2);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.hero {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(21, 28, 37, 0.92), rgba(10, 14, 18, 0.92)),
+    repeating-linear-gradient(-18deg, transparent, transparent 18px, rgba(212, 175, 106, 0.035) 18px, rgba(212, 175, 106, 0.035) 19px);
+  border-radius: 28px;
+  padding: 28px 24px 26px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green-soft);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.kicker::before,
+.kicker::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--green-soft);
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.7rem, 5vw, 2.7rem);
+  line-height: 1.15;
+  margin: 14px 0 12px;
+  color: #fff8ea;
+}
+
+.meta {
+  color: var(--gold-2);
+  font-size: 0.98rem;
+}
+
+.intro {
+  margin-top: 16px;
+  color: var(--muted);
+  max-width: 62ch;
+  margin-inline: auto;
+}
+
+.timeline {
+  margin-top: 34px;
+  display: grid;
+  gap: 16px;
+}
+
+.block {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+}
+
+.step {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.num {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+
+.block h2 {
+  font-size: 1.12rem;
+}
+
+.axes {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.axe {
+  background: #10161e;
+  border: 1px solid rgba(45, 179, 106, 0.22);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.axe span {
+  display: inline-block;
+  background: rgba(31, 138, 76, 0.18);
+  color: var(--green-soft);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.debate-q {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.45rem;
+  text-align: center;
+  margin: 8px 0 16px;
+}
+
+.debate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.side {
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.side.yes {
+  background: var(--yes);
+  color: var(--yes-ink);
+}
+
+.side.no {
+  background: var(--no);
+  color: var(--no-ink);
+}
+
+.side h3 {
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+}
+
+.side p {
+  margin-top: 8px;
+}
+
+.thanks {
+  text-align: center;
+  padding: 8px 0 2px;
+}
+
+.thanks strong {
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.thanks span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+footer {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Accueil / QR */
+.desk {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.desk-card {
+  width: min(560px, 100%);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.desk-card h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin: 10px 0 8px;
+}
+
+.desk-card p {
+  color: var(--muted);
+}
+
+.qr-box {
+  margin: 22px auto;
+  width: min(320px, 100%);
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.qr-box img,
+.qr-box canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  color: #1a1408;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.url {
+  margin-top: 14px;
+  font-size: 12px;
+  word-break: break-all;
+  color: var(--gold-2);
+}
+
+@media (max-width: 640px) {
+  .debate {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .bg-glow, .actions, .topbar {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #111;
+  }
+  .desk-card {
+    box-shadow: none;
+    border: 0;
+    background: #fff;
+  }
+  .desk-card p, .url {
+    color: #333;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <main class="wrap">
+    <div class="topbar">
+      <a class="brand" href="index.html">
+        <div class="logo">EMSI</div>
+        <div>
+          <strong>EMSI – CFC Casablanca</strong>
+          <small>Accueil conférence</small>
+        </div>
+      </a>
+      <div class="chip">27 novembre 2026 · 18h00</div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker">Programme de la conférence</div>
+      <h1>Comment la géographie a façonné le destin du Maroc ?</h1>
+      <p class="meta">27 novembre 2026 · À partir de 18h00</p>
+      <p class="intro">
+        Une soirée pour comprendre comment la position du Royaume — entre l’Europe et l’Afrique,
+        ouverte sur l’Atlantique et la Méditerranée — a façonné son identité, son économie et sa
+        place géopolitique.
+      </p>
+    </section>
+
+    <section class="timeline">
+      <article class="block">
+        <div class="step">
+          <span class="num">01</span>
+          <h2>Présentation de la conférence</h2>
+        </div>
+        <p>
+          La géographie constitue un facteur essentiel dans la construction de l’identité et du
+          développement du Maroc. Grâce à sa position stratégique entre l’Europe et l’Afrique,
+          ainsi qu’à son ouverture sur l’océan Atlantique et la mer Méditerranée, le Maroc occupe
+          une place importante sur les plans économique, historique et géopolitique.
+        </p>
+        <p style="margin-top:12px">
+          Cette conférence vise à analyser l’influence de la géographie sur le passé, le présent
+          et l’avenir du Royaume.
+        </p>
+      </article>
+
+      <article class="block">
+        <div class="step">
+          <span class="num">02</span>
+          <h2>Ouverture</h2>
+        </div>
+        <p>Mot de bienvenue et présentation des objectifs de la conférence.</p>
+      </article>
+
+      <article class="block">
+        <div class="step">
+          <span class="num">03</span>
+          <h2>Les axes principaux</h2>
+        </div>
+        <div class="axes">
+          <div class="axe">
+            <span>Axe A</span>
+            <p>La géographie : un avantage stratégique pour le Maroc ?</p>
+          </div>
+          <div class="axe">
+            <span>Axe B</span>
+            <p>La géographie peut-elle garantir le développement économique ?</p>
+          </div>
+          <div class="axe">
+            <span>Axe C</span>
+            <p>La géographie et la puissance géopolitique du Maroc.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="block">
+        <div class="step">
+          <span class="num">04</span>
+          <h2>Débat contradictoire : face-à-face</h2>
+        </div>
+        <p class="debate-q">La géographie suffit-elle à garantir le développement et la puissance du Maroc ?</p>
+        <div class="debate">
+          <div class="side yes">
+            <h3>OUI</h3>
+            <strong>Position favorable</strong>
+            <p>La géographie constitue un atout majeur pour le Maroc.</p>
+          </div>
+          <div class="side no">
+            <h3>NON</h3>
+            <strong>Position contradictoire</strong>
+            <p>La géographie ne suffit pas à garantir le développement et la puissance.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="block">
+        <div class="step">
+          <span class="num">05</span>
+          <h2>Échange avec le public</h2>
+        </div>
+        <p>Séance de questions-réponses et participation du public autour des problématiques abordées.</p>
+      </article>
+
+      <article class="block">
+        <div class="step">
+          <span class="num">06</span>
+          <h2>Synthèse et clôture</h2>
+        </div>
+        <p>Récapitulation des principales idées, conclusion générale et remerciements.</p>
+        <div class="thanks" style="margin-top:18px">
+          <strong>Merci pour votre participation !</strong>
+          <span>EMSI – CFC Casablanca</span>
+        </div>
+      </article>
+    </section>
+
+    <footer>Conférence officielle · EMSI – CFC Casablanca</footer>
+  </main>
+</body>
+</html>

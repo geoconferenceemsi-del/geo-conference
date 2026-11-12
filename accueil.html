@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Accueil & Scan QR — Conférence Officielle EMSI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #060a14;
+      --card-bg: rgba(13, 22, 40, 0.88);
+      --royal-gold: #d4af37;
+      --royal-gold-light: #f5d77f;
+      --royal-bordeaux: #701429;
+      --royal-beige: #f6efe2;
+      --text-muted: #94a3b8;
+      --line-subtle: rgba(212, 175, 55, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 0%, #101c38 0%, #060a14 85%);
+      color: var(--royal-beige);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background glows */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      opacity: 0.25;
+    }
+    .glow-1 {
+      top: -50px;
+      left: 15%;
+      width: 400px;
+      height: 400px;
+      background: var(--royal-gold);
+    }
+    .glow-2 {
+      bottom: -50px;
+      right: 15%;
+      width: 450px;
+      height: 450px;
+      background: var(--royal-bordeaux);
+    }
+
+    /* Carte du Maroc en background */
+    .morocco-bg-wrap {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .morocco-map-img {
+      width: min(850px, 98vw);
+      max-height: 92vh;
+      object-fit: contain;
+      opacity: 0.22;
+      filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.4));
+      transition: all 0.4s ease;
+    }
+    @media (max-width: 600px) {
+      .morocco-map-img {
+        width: 110vw;
+        max-height: 85vh;
+      }
+    }
+
+    .desk-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--royal-gold);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(212, 175, 55, 0.2);
+      border-radius: 24px;
+      padding: 38px 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .emsi-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(112, 20, 41, 0.4);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--royal-gold-light);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.1rem;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .lead-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .qr-frame {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 18px;
+      display: inline-block;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.35);
+      border: 2px solid var(--royal-gold);
+    }
+    .qr-frame img {
+      width: 220px;
+      height: 220px;
+      display: block;
+    }
+
+    .event-info {
+      background: rgba(8, 14, 28, 0.75);
+      border: 1px solid var(--line-subtle);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 22px;
+    }
+    .event-info strong {
+      display: block;
+      color: var(--royal-gold-light);
+      font-size: 0.95rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .event-info span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--royal-gold), #b89328);
+      color: #060a14;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    }
+    .btn-ghost {
+      background: rgba(112, 20, 41, 0.35);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--royal-beige);
+    }
+    .btn-ghost:hover {
+      background: rgba(112, 20, 41, 0.6);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-orb glow-1"></div>
+  <div class="glow-orb glow-2"></div>
+
+  <!-- Carte du Maroc en filigrane -->
+  <div class="morocco-bg-wrap">
+    <img src="maroc.png" alt="Carte du Maroc" class="morocco-map-img" onerror="this.src='maroc.jpg'" />
+  </div>
+
+  <main class="desk-card">
+    <div style="background:#ffffff; border-radius:12px; padding:7px 18px; display:inline-flex; align-items:center; margin-bottom:14px; border:1px solid var(--royal-gold); box-shadow:0 4px 16px rgba(0,0,0,0.3);">
+      <img src="emsi_logo.png" alt="Logo EMSI" style="height:36px; display:block;" />
+    </div>
+    <div class="emsi-chip" style="display:block; margin:0 auto 16px; width:fit-content;">CFC Casablanca</div>
+    <h1>Bienvenue à la Conférence</h1>
+    <p class="lead-text">Scannez ce QR code avec l'appareil photo de votre smartphone pour ouvrir le programme interactif et évaluer l'événement.</p>
+
+    <div class="qr-frame">
+      <img src="qr-conference.png" alt="QR Code de la Conférence EMSI" id="qrImg" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(window.location.origin + '/index.html');" />
+    </div>
+
+    <div class="event-info">
+      <strong>« Comment la géographie a façonné le destin du Maroc ? »</strong>
+      <span>📅 27 Novembre 2026 à partir de 18h00 · Casablanca</span>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="index.html">
+        <span>Ouvrir le site</span>
+        <span>→</span>
+      </a>
+      <button class="btn btn-ghost" type="button" onclick="window.print()">
+        <span>🖨️ Imprimer le QR</span>
+      </button>
+    </div>
+  </main>
+
+</body>
+</html>
